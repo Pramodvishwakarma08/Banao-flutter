@@ -70,7 +70,6 @@ class LessonsForYouScreen extends StatelessWidget {
                           SizedBox(height: GetHW.h(10),),
 
                           Text(
-
                             snapshot.data!.desc,
                             style: const TextStyle(
                               fontWeight: FontWeight.w700,

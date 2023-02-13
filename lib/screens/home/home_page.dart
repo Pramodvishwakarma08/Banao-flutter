@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task_banao/helper/app_layout.dart';
 import 'package:flutter_task_banao/helper/colors.dart';
 import 'package:flutter_task_banao/screens/home/lessons_for_you_screen.dart';
-import 'package:flutter_task_banao/screens/home/lessons_for_you_screen1.dart';
+import 'package:flutter_task_banao/screens/home/programs_screen.dart';
 import '../../helper/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -72,15 +72,16 @@ class HomePage extends StatelessWidget {
                 children: [
                   programsViewRow("Programs for you",),
                   SizedBox(height: GetHW.h(24),),
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          LessonsForYouScreen1(),
-                          SizedBox(width: GetHW.h(16),),
-                          LessonsForYouScreen1(),
-                        ],
-                      )),
+                  ProgramsScreen(),
+                  // SingleChildScrollView(
+                  //     scrollDirection: Axis.horizontal,
+                  //     child: Row(
+                  //       children: [
+                  //         ProgramsForYouScreen(),
+                  //         SizedBox(width: GetHW.h(16),),
+                  //         ProgramsForYouScreen(),
+                  //       ],
+                  //     )),
                   SizedBox(height: GetHW.h(32),),
                   programsViewRow("Events and experiencs",),
                   SizedBox(height: GetHW.h(24),),

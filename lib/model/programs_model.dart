@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final lessonsForYouModel = lessonsForYouModelFromJson(jsonString);
+//     final programsModel = programsModelFromJson(jsonString);
 
 import 'dart:convert';
 
-LessonsForYouModel lessonsForYouModelFromJson(String str) => LessonsForYouModel.fromJson(json.decode(str));
+ProgramsModel programsModelFromJson(String str) => ProgramsModel.fromJson(json.decode(str));
 
-String lessonsForYouModelToJson(LessonsForYouModel data) => json.encode(data.toJson());
+String programsModelToJson(ProgramsModel data) => json.encode(data.toJson());
 
-class LessonsForYouModel {
-  LessonsForYouModel({
+class ProgramsModel {
+  ProgramsModel({
     required this.requestId,
     required this.items,
     required this.count,
@@ -21,7 +21,7 @@ class LessonsForYouModel {
   int count;
   String anyKey;
 
-  factory LessonsForYouModel.fromJson(Map<String, dynamic> json) => LessonsForYouModel(
+  factory ProgramsModel.fromJson(Map<String, dynamic> json) => ProgramsModel(
     requestId: json["requestId"],
     items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
     count: json["count"],
@@ -40,34 +40,30 @@ class Item {
   Item({
     required this.createdAt,
     required this.name,
-    required this.duration,
     required this.category,
-    required this.locked,
+    required this.lesson,
     required this.id,
   });
 
   DateTime createdAt;
   String name;
-  int duration;
   String category;
-  bool locked;
+  int lesson;
   String id;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
     createdAt: DateTime.parse(json["createdAt"]),
     name: json["name"],
-    duration: json["duration"],
     category: json["category"],
-    locked: json["locked"],
+    lesson: json["lesson"],
     id: json["id"],
   );
 
   Map<String, dynamic> toJson() => {
     "createdAt": createdAt.toIso8601String(),
     "name": name,
-    "duration": duration,
     "category": category,
-    "locked": locked,
+    "lesson": lesson,
     "id": id,
   };
 }

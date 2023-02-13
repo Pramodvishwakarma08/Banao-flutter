@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_banao/helper/colors.dart';
-import 'app_layout.dart';
+import '../res/app_layout.dart';
+import '../res/colors/app_color.dart';
 
 Text titleTextNormal(String data,  double fSize,fWeight,){
   return Text(data,

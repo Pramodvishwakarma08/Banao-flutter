@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_banao/helper/colors.dart';
-import 'package:flutter_task_banao/screens/home/home_page.dart';
+
+import '../../res/colors/app_color.dart';
+import '../home/home_page.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({super.key});

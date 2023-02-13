@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_banao/screens/dashboard/dashboard_page.dart';
+import 'package:flutter_task_banao/view/dashboard/dashboard_page.dart';
 
 void main() {
   runApp(const MyApp());

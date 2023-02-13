@@ -13,7 +13,7 @@ class MyColor {
   static const Color grayboxbg = Color(0xffEBEDF0);
   static const Color boxshowclr = Color(0xff0e443e14);
 
-  // static const Color primaryGrey3 = Color(0xffc7c3c7);
-  // static const Color drawericon3 = Color(0xffc2f6248);
+// static const Color primaryGrey3 = Color(0xffc7c3c7);
+// static const Color drawericon3 = Color(0xffc2f6248);
 
 }

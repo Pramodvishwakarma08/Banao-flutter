@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_banao/helper/app_layout.dart';
-import 'package:flutter_task_banao/helper/colors.dart';
-import 'package:flutter_task_banao/screens/home/lessons_for_you_screen.dart';
-import 'package:flutter_task_banao/screens/home/lessons_for_you_screen1.dart';
-import '../../helper/widgets.dart';
+import 'package:flutter_task_banao/view/home/programs_screen.dart';
+import '../../res/app_layout.dart';
+import '../../res/colors/app_color.dart';
+import '../../utils/widgets.dart';
+import 'lessons_for_you_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,13 +14,8 @@ class HomePage extends StatelessWidget {
       appBar:  AppBar(
         elevation: 0,
         backgroundColor: MyColor.bgcolor,
-        leading: const ImageIcon(
-          AssetImage("assets/menu1.png",),
-          color: MyColor.grayDarkClr,
-        ),
-
-        actions: [
-          const ImageIcon(
+        leading: const ImageIcon(AssetImage("assets/menu1.png",), color: MyColor.grayDarkClr,),
+        actions: [const ImageIcon(
             AssetImage("assets/msgicon.png",),
             color: MyColor.grayDarkClr,
           ),          SizedBox(width: GetHW.h(22),),
@@ -37,15 +32,15 @@ class HomePage extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: GetHW.h(16)),
                 color: MyColor.bgcolor,
-                height: GetHW.h(276-56),
+                height: GetHW.h(220),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: GetHW.h(8+3),),
-                    SizedBox(child: titleTextNormal("Hello Priya ", 20, FontWeight.w500)),
-                    SizedBox(height: GetHW.h(3+2),),
+                    SizedBox(height: GetHW.h(11),),
+                    titleTextNormal("Hello Priya ", 20, FontWeight.w500),
+                    SizedBox(height: GetHW.h(5),),
                     subTitleText("What do you wanna learn today?", 12),
-                    SizedBox(height: GetHW.h(44-13),),
+                    SizedBox(height: GetHW.h(31),),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         myContainer("Programs", "assets/v1.png"),
@@ -72,43 +67,14 @@ class HomePage extends StatelessWidget {
                 children: [
                   programsViewRow("Programs for you",),
                   SizedBox(height: GetHW.h(24),),
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          LessonsForYouScreen1(),
-                          SizedBox(width: GetHW.h(16),),
-                          LessonsForYouScreen1(),
-                        ],
-                      )),
+                  ProgramsScreen(),
                   SizedBox(height: GetHW.h(32),),
                   programsViewRow("Events and experiencs",),
                   SizedBox(height: GetHW.h(24),),
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          const LessonsForYouScreen(),
-                          SizedBox(width: GetHW.h(16),),
-                          const LessonsForYouScreen(),
-                        ],
-                      )),
+                  LessonsForYouScreen(),
                   SizedBox(height: GetHW.h(32),),
-                  programsViewRow("Lessoons for you",),
+                  LessonsForYouScreen(),
                   SizedBox(height: GetHW.h(24),),
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          const LessonsForYouScreen(),
-                          SizedBox(width: GetHW.h(16),),
-                          const LessonsForYouScreen(),
-                        ],
-                      )),
-                  SizedBox(height: GetHW.h(32),),
-
-
-
                 ],
               ),
             ],

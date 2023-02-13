@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
-import '../res/app_layout.dart';
-import '../res/colors/app_color.dart';
+import 'app_layout.dart';
+import 'colors/app_color.dart';
+import 'fonts/app_fonts.dart';
 
 Text titleTextNormal(String data,  double fSize,fWeight,){
   return Text(data,
     style: TextStyle(
       fontSize: fSize,
       fontWeight: FontWeight.w500,
-      fontFamily: "lorafont",
+      fontFamily: AppFonts.loraRegular,
       color: Colors.black
     ),);
 }
-Text subTitleText(String data, double fSize){
+Text subTitle2Text(String data, double fSize,FontWeight fWeight,  Color color){
   return Text(data,
-    textAlign: TextAlign.center,
+    // textAlign: TextAlign.center,
     style: TextStyle(
       fontSize: fSize,
-      fontWeight: FontWeight.w500,
-      color: MyColor.subTitleTextClr,
-    ),);
+      fontWeight: fWeight,
+      color: color,
+    ),
+    maxLines: 2,
+  );
 }
+
+
 Widget myContainer(String data ,String img){
   return  Container(
     height: GetHW.h(48),
@@ -56,8 +61,8 @@ Widget programsViewRow1(String title){
     children: [
       // Text("Programs for you "),
       // titleTextNormal("Programs for you ", context,,),
-      titleTextNormal(
-          title,  18, FontWeight.w500),
+      subTitle2Text(
+          title,  18, FontWeight.w500,Colors.black87),
       // Text("view"),
     ],
   );
@@ -76,7 +81,7 @@ Widget programsViewRow(String title){
             title,  18, FontWeight.w500),
         Row(
           children: [
-            subTitleText("View all", 12),
+            subTitle2Text("View all", 12,FontWeight.w700,MyColor.subTitleTextClr),
             const ImageIcon(AssetImage('assets/aro.png')),
           ],
         ),

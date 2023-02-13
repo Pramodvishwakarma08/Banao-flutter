@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_task_banao/res/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import '../../model/lessons_for_you_model.dart';
@@ -25,24 +26,10 @@ class _LessonsForYouScreenState extends State<LessonsForYouScreen> {
   }
 
   @override
-  void initState() {
-    setState(() {
-      loadAssets();
-    });
-    loadAssets();
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       height: GetHW.h(280),
       padding: EdgeInsets.only(left: GetHW.h(16)),
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      // ),
       child: FutureBuilder(
         future: loadAssets(),
         builder: (context, AsyncSnapshot<LessonsForYouModel> snapshot) {
@@ -62,27 +49,12 @@ class _LessonsForYouScreenState extends State<LessonsForYouScreen> {
                         // height: GetHW.h(280),
                         width: GetHW.h(242),
                         decoration: BoxDecoration(
-                            boxShadow: const <BoxShadow>[
-                              BoxShadow(
-                                color: MyColor.boxshowclr,
-                                blurRadius: 8.0,
-                                offset: Offset(0.75, 0.00),
-
-                              )
-                            ],
-
+                            boxShadow: const <BoxShadow>[BoxShadow(color: MyColor.boxshowclr, blurRadius: 8.0, offset: Offset(0.75, 0.00),)],
                             borderRadius: BorderRadius.circular(GetHW.h(8)),
-                            border: Border.all(
-                              color: MyColor.grayboxbg,
-                              width: 1,
-                              style: BorderStyle.solid,
-                            )
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                            border: Border.all(color: MyColor.grayboxbg, width: 1, style: BorderStyle.solid,)),
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
-                               height: GetHW.h(140),
+                            SizedBox(height: GetHW.h(140),
                                 child: Image.asset("assets/ex1.png")),
                             SizedBox(height: GetHW.h(5),),
                             Padding(
@@ -90,60 +62,18 @@ class _LessonsForYouScreenState extends State<LessonsForYouScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    snapshot.data!.items[index].category,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 12,
-                                      color: MyColor.blueText,
-                                    ),
-                                  ),
+                                  subTitle2Text(snapshot.data!.items[index].category, 12, FontWeight.w700, MyColor.blueText),
                                   SizedBox(height: GetHW.h(10),),
 
-                                  SizedBox(
-                                    height: GetHW.h(45),
-                                    child: Text(
-                                      snapshot.data!.items[index].name,
-                                      maxLines: 2,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                        // height: 1.6
-                                      ),
-
-                                    ),
-                                  ),
+                                  SizedBox(height: GetHW.h(45),
+                                    child: subTitle2Text(snapshot.data!.items[index].name, 16, FontWeight.w700, Colors.black,),),
                                   SizedBox(height: GetHW.h(10),),
-
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("${DateFormat(DateFormat.DAY).format(snapshot.data!.items[index].createdAt)} ${DateFormat(DateFormat.ABBR_MONTH).format(snapshot.data!.items[index].createdAt)}, ${DateFormat(DateFormat.WEEKDAY).format(snapshot.data!.items[index].createdAt)}",
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          color: MyColor.subTitleTextClr,
-                                        ),
-                                      ),
-                                      Icon(Icons.lock),
-                                      // Container(
-                                      //   decoration: BoxDecoration(
-                                      //       borderRadius: BorderRadius.circular(GetHW.h(14)),
-                                      //       border: Border.all(
-                                      //         color: MyColor.blueText,
-                                      //       )
-                                      //   ),
-                                      //   child: Padding(
-                                      //     padding:  EdgeInsets.symmetric(horizontal: GetHW.h(16),vertical: GetHW.h(6)),
-                                      //     child: const Text("Book",
-                                      //       style: TextStyle(
-                                      //         fontWeight: FontWeight.w600,
-                                      //         fontSize: 12,
-                                      //         color: MyColor.blueText,
-                                      //       ),                      ),
-                                      //   ),
-                                      // )
+                                      subTitle2Text("${DateFormat(DateFormat.DAY).format(snapshot.data!.items[index].createdAt)} ${DateFormat(DateFormat.ABBR_MONTH).format(snapshot.data!.items[index].createdAt)}, ${DateFormat(DateFormat.WEEKDAY).format(snapshot.data!.items[index].createdAt)}", 12,  FontWeight.w500,  MyColor.subTitleTextClr,),
+                                     snapshot.data!.items[index].locked ? Container(height: 10,width: 10,color: Colors.red,) : Icon(Icons.lock_outline_rounded, color: MyColor.subTitleTextClr,size: 14,)
+
                                     ],
                                   ),
                                 ],

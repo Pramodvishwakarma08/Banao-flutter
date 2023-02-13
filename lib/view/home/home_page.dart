@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task_banao/view/home/programs_screen.dart';
 import '../../res/app_layout.dart';
 import '../../res/colors/app_color.dart';
-import '../../utils/widgets.dart';
+import '../../res/widgets.dart';
 import 'lessons_for_you_screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: GetHW.h(11),),
                     titleTextNormal("Hello Priya ", 20, FontWeight.w500),
                     SizedBox(height: GetHW.h(5),),
-                    subTitleText("What do you wanna learn today?", 12),
+                    subTitle2Text("What do you wanna learn today?", 12,FontWeight.w500,MyColor.subTitleTextClr),
                     SizedBox(height: GetHW.h(31),),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

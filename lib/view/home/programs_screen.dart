@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_task_banao/res/widgets.dart';
 import '../../model/programs_model.dart';
 import 'package:http/http.dart' as http;
 import '../../res/app_layout.dart';
@@ -40,71 +41,29 @@ class ProgramsScreen extends StatelessWidget {
                       // height: GetHW.h(280),
                       width: GetHW.h(242),
                       decoration: BoxDecoration(
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                              color: MyColor.boxshowclr,
-                              blurRadius: GetHW.h(8),
-                              offset: const Offset(0.75, 0.00),
-                            )
-                          ],
+                          boxShadow: <BoxShadow>[BoxShadow(color: MyColor.boxshowclr, blurRadius: GetHW.h(8), offset: const Offset(0.75, 0.00),)],
                           borderRadius: BorderRadius.circular(GetHW.h(8)),
-                          border: Border.all(
-                            color: MyColor.grayboxbg,
-                            width: 1,
-                            style: BorderStyle.solid,
-                          )),
+                          border: Border.all(color: MyColor.grayboxbg, width: 1, style: BorderStyle.solid,)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset("assets/ex2.png"),
-                          SizedBox(
-                            height: GetHW.h(5),
-                          ),
+                          SizedBox(height: GetHW.h(5),),
                           Padding(
                             padding: EdgeInsets.all(GetHW.h(12)),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // SizedBox(height: GetHW.h(8),),
-                                Text(
-                                  snapshot.data!.items[index].category,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 13,
-                                    color: MyColor.blueText,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: GetHW.h(10),
-                                ),
-                                SizedBox(
-                                  height: GetHW.h(45),
-
-                                  child: Text(
-                                    snapshot.data!.items[index].name,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: GetHW.h(20),
-                                ),
+                                subTitle2Text(snapshot.data!.items[index].category, 13, FontWeight.w700, MyColor.blueText),
+                                SizedBox(height: GetHW.h(10),),
+                                SizedBox(height: GetHW.h(45),
+                                    child: subTitle2Text(snapshot.data!.items[index].name, 16,FontWeight.w700,Colors.black, )),
+                                SizedBox(height: GetHW.h(20),),
                                 Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      "${snapshot.data!.items[index].lesson} lesson",
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12,
-                                        color: MyColor.subTitleTextClr,
-                                      ),
-                                    ),
-                                  ],
+                                    subTitle2Text( "${snapshot.data!.items[index].lesson} lesson",12, FontWeight.w500, MyColor.subTitleTextClr)
+                                       ],
                                 ),
                               ],
                             ),
